@@ -1,4 +1,15 @@
 
+
+const b1 = document.getElementById("button1");
+const b2 = document.getElementById("button2");
+const b3 = document.getElementById("button3");
+b1.addEventListener('click', playRound());
+b2.addEventListener('click', playRound);
+b3.addEventListener('click', playRound);
+
+
+
+
 var playGame=function(){
     let humanScore=0;
     let computerScore=0;
@@ -18,7 +29,7 @@ var playGame=function(){
         let userInput = prompt("Choose! ");
         return userInput;
     }
-    function playRound(humanChoice, computerChoice){
+const playRound = function playRound(humanChoice, computerChoice){
         let hc=humanChoice.toLowerCase();
         let cc=computerChoice.toLowerCase();
         console.log("Your Choice: "+hc+" ; "+"Computer's Choice: "+cc);
@@ -34,21 +45,7 @@ var playGame=function(){
          console.log("You Won!");
         }
      }
-     let humanSelect1=getHumanChoice();
-     let computerSelect1=getComputerChoice();
-     playRound(humanSelect1, computerSelect1);
-     let humanSelect2=getHumanChoice();
-     let computerSelect2=getComputerChoice();
-     playRound(humanSelect2, computerSelect2);
-     let humanSelect3=getHumanChoice();
-     let computerSelect3=getComputerChoice();
-     playRound(humanSelect3, computerSelect3);
-     let humanSelect4=getHumanChoice();
-     let computerSelect4=getComputerChoice();
-     playRound(humanSelect4, computerSelect4);
-     let humanSelect5=getHumanChoice();
-     let computerSelect5=getComputerChoice();
-     playRound(humanSelect5, computerSelect5);
+     
      if(humanScore>computerScore){
         return `You've won the round by ${humanScore-computerScore} point!`;
      }

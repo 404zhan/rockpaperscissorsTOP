@@ -1,5 +1,5 @@
 
-var playGame=function(){
+
     let humanScore=0;
     let computerScore=0;
 
@@ -25,6 +25,8 @@ var playGame=function(){
      const resPara = document.querySelector('.result1');
      const scorePara = document.querySelector('.result2');
      const choicePara = document.querySelector('.result3');
+     const finalPara = document.querySelector('.result4');
+
     function getComputerChoice(){
         let num = Math.floor(Math.random()*10);
         if(num>=0 && num<3){
@@ -41,6 +43,20 @@ var playGame=function(){
         let hc=humanChoice.toLowerCase();
         let cc=computerChoice.toLowerCase();
         choicePara.textContent = "Your Choice: "+hc.toUpperCase()+" ; "+"Computer's Choice: "+cc.toUpperCase();
+
+        if(computerScore==5 && humanScore<5){
+            finalPara.textContent = `Computer has won this round by ${computerScore-humanScore} points`;
+            return;
+        }
+        else if(humanScore==5 && computerScore<5){
+            finalPara.textContent = `You have won this round by ${humanScore-computerScore} points`;
+            return;
+        }
+        else if(humanScore==5 && computerScore==5){
+            finalPara.textContent = `This round has been a draw`;
+            return;
+        }
+
         if(hc===cc){
          resPara.textContent = `The ongoing score is Computer's: ${computerScore} Your: ${humanScore}`;
          scorePara.textContent = "Who cares its a draw!";
@@ -58,15 +74,6 @@ var playGame=function(){
      }
      
 
-    if(humanScore>computerScore){
-        return `You've won the round by ${humanScore-computerScore} point!`;
-     }
-     else if(humanScore<computerScore){
-        return `You've lost the round by ${computerScore-humanScore} point.`;
-     }
-     else{
-        return `This is a draw, Computer's Score: ${computerScore} Your Score: ${humanScore}`;
-     }
-}
 
-console.log(playGame());
+
+
